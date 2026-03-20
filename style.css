@@ -1,0 +1,129 @@
+/* ===== CONFIGURAÇÃO GERAL ===== */
+
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+
+/* ===== ESPAÇO ===== */
+
+#espaco {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+
+    background-color: black;
+
+    /* estrelas */
+    background-image:
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(white 2px, transparent 2px);
+
+    background-size: 
+        80px 80px,
+        120px 120px,
+        200px 200px;
+
+    animation: estrelas 40s linear infinite;
+}
+
+
+/* ===== PLANETAS ===== */
+
+.clouds,
+.planeta,
+.planeta2 {
+    position: absolute;
+    left: 100%;
+    animation: mover linear forwards;
+}
+
+/* 🌍 Terra */
+.clouds {
+    width: 300px;
+    top: 10%;
+    animation-duration: 12s;
+    animation-delay: 0s;
+}
+
+/* 🪐 Planeta 1 */
+.planeta {
+    width: 250px;
+    top: 60%;
+    animation-duration: 12s;
+    animation-delay: 12s;
+}
+
+/* 🔴 Planeta 2 */
+.planeta2 {
+    width: 200px;
+    top: 75%;
+    animation-duration: 12s;
+    animation-delay: 24s;
+}
+
+
+/* ===== FOGUETE ===== */
+
+#foguete {
+    position: absolute;
+    width: 120px;
+    top: 45%;
+    left: 10%;
+    transform: rotate(90deg);
+}
+
+
+/* ===== METEOROS ===== */
+
+.meteoro {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+
+    background: radial-gradient(circle at 30% 30%, #aaa, #555, #222);
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 10px #999,
+        inset -5px -5px 10px #000;
+        animation: girar 2s linear infinite;    
+}
+
+/* ===== ANIMAÇÕES ===== */
+
+/* Planetas */
+@keyframes mover {
+    0% {
+        left: 100%;
+    }
+    100% {
+        left: -40vw;
+    }
+}
+
+/* Estrelas */
+@keyframes estrelas {
+
+    from {
+        background-position:
+            0 0,
+            40px 60px,
+            100px 120px;
+    }
+
+    to {
+        background-position:
+            -1000px 0,
+            -1000px 60px,
+            -1000px 120px;
+    }
+}
+
+@keyframes girar {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
